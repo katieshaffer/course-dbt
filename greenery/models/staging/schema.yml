@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: addresses
+    description: Address information for each order
+
+  - name: events
+    description: Event information for each user
+
+  - name: order_items
+    description: Quantity and product information for each order
+
+  - name: orders
+    description: Order information
+
+  - name: products
+    description: Product and inventory information
+
+  - name: promos
+    description: Promo code information
+
+  - name: users
+    description: User information
+  
+
+
