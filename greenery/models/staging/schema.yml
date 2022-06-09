@@ -3,24 +3,61 @@ version: 2
 models:
   - name: addresses
     description: Address information for each order
+    columns:
+      - name: address_id
+        tests:
+          - not_null
+          - unique
 
   - name: events
     description: Event information for each user
+    columns:
+      - name: event_id
+        tests:
+          - not_null
+          - unique
 
   - name: order_items
     description: Quantity and product information for each order
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: product_id
+        tests:
+          - not_null
 
   - name: orders
     description: Order information
-
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+          
   - name: products
     description: Product and inventory information
+    columns:
+      - name: product_id
+        tests:
+          - not_null
+          - unique
 
   - name: promos
     description: Promo code information
+    columns:
+      - name: promo_id
+        tests:
+          - not_null
+          - unique
 
   - name: users
     description: User information
+    columns:
+      - name: user_id
+        tests:
+          - not_null
+          - unique
   
 
 
