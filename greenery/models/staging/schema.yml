@@ -1,15 +1,24 @@
 version: 2
 
 models:
-  - name: addresses
-    description: Address information for each order
+  - name: stg_addresses
+    description: Delivery address information for each order
     columns:
       - name: address_id
+        description: UUID for each unique address on platform
         tests:
           - not_null
           - unique
+      - name: address
+        description: The first few lines of the address
+      - name: zipcode
+        description: ZIP code of the address
+      - name: state
+        description: State of the address     
+      - name: country
+        description: Country of the address
 
-  - name: events
+  - name: stg_events
     description: Event information for each user
     columns:
       - name: event_id
@@ -17,7 +26,7 @@ models:
           - not_null
           - unique
 
-  - name: order_items
+  - name: stg_order_items
     description: Quantity and product information for each order
     columns:
       - name: order_id
@@ -27,15 +36,18 @@ models:
         tests:
           - not_null
 
-  - name: orders
+  - name: stg_orders
     description: Order information
     columns:
       - name: order_id
         tests:
           - not_null
           - unique
+      - name: order_cost
+        tests:
+          - positive_values
           
-  - name: products
+  - name: stg_products
     description: Product and inventory information
     columns:
       - name: product_id
@@ -43,15 +55,19 @@ models:
           - not_null
           - unique
 
-  - name: promos
+  - name: stg_promos
     description: Promo code information
     columns:
       - name: promo_id
         tests:
           - not_null
           - unique
+      - name: status
+        tests:
+          - accepted_values:
+             values: ['active', 'inactive'] 
 
-  - name: users
+  - name: stg_users
     description: User information
     columns:
       - name: user_id
