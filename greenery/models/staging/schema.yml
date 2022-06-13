@@ -25,6 +25,23 @@ models:
         tests:
           - not_null
           - unique
+      - name: session_id
+        tests:
+          - not_null
+      - name: user_id
+        tests:
+          - not_null
+      - name: page_url
+        tests:
+          - not_null
+      - name: created_at
+        tests:
+          - not_null
+      - name: event_type
+        tests:
+          - not_null
+          - accepted_values: 
+             values: ['add_to_cart','checkout','page_view','package_shipped']
 
   - name: stg_order_items
     description: Quantity and product information for each order
@@ -35,6 +52,10 @@ models:
       - name: product_id
         tests:
           - not_null
+      - name: quantity
+        tests:
+          - not_null
+          - positive_values
 
   - name: stg_orders
     description: Order information
@@ -43,9 +64,28 @@ models:
         tests:
           - not_null
           - unique
+      - name: user_id
+        tests: 
+          - not_null
+      - name: address_id
+        tests: 
+          - not_null
+      - name: created_at
+        tests: 
+          - not_null
       - name: order_cost
         tests:
+          - not_null
           - positive_values
+      - name: order_total
+        tests: 
+          - not_null
+          - positive_values
+      - name: status
+        tests:
+          - not_null
+          - accepted_values: 
+             values: ['shipped', 'preparing', 'delivered']
           
   - name: stg_products
     description: Product and inventory information
@@ -54,6 +94,11 @@ models:
         tests:
           - not_null
           - unique
+      - name: name
+          - not_null
+      - name: price
+        tests:
+         - positive_values
 
   - name: stg_promos
     description: Promo code information
@@ -66,6 +111,9 @@ models:
         tests:
           - accepted_values:
              values: ['active', 'inactive'] 
+      - name: discount
+        tests:
+          - positive_values
 
   - name: stg_users
     description: User information
@@ -74,6 +122,26 @@ models:
         tests:
           - not_null
           - unique
-  
+      - name: first_name
+        tests:
+          - not_null
+      - name: last_name
+        tests: 
+          - not_null
+      - name: email
+        tests: 
+          - not_null
+      - name: phone_number
+        tests: 
+          - not_null
+      - name: created_at
+        tests: 
+          - not_null
+      - name: updated_at
+        tests: 
+          - not_null
+      - name: address_id
+        tests: 
+          - not_null
 
 
