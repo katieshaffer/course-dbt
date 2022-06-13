@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_addresses
+    description: Delivery address information for each order
+    columns:
+      - name: address_id
+        description: UUID for each unique address on platform
+        tests:
+          - not_null
+          - unique
+      - name: address
+        description: The first few lines of the address
+      - name: zipcode
+        description: ZIP code of the address (cleaned to account for dropped leading zeroes)
+      - name: state
+        description: State of the address     
+      - name: country
+        description: Country of the address
+      - name: is_usa
+        description: Indicates whether the address country is United States
+
+    

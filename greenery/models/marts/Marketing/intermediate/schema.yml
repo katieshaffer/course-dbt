@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_order_promos
+    description: Order level information with promo code data addedd
+    columns: 
+      - name: order_id
+        tests:
+          - unique
+          - not_null
+    
