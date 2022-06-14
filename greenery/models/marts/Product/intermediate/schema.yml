@@ -1,10 +1,5 @@
 version: 2
 
 models:
-  - name: int_order_products
-    description: Order level information with product names and quantities
-    columns: 
-      - name: order_id
-        tests:
-          - not_null
-    
+  - name: int_events
+    description: Event data for the platform
