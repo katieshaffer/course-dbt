@@ -1,11 +1,18 @@
 version: 2
 
 models:
-  - name: int_order_promos
-    description: Order level information with promo code data addedd
+  - name: fct_user_orders
+    description: Order information combined with the user and promo information
     columns: 
-      - name: order_id
+      - name: user_id
         tests:
-          - unique
           - not_null
+
+  - name: dim_users
+    description: Information for each Greenery user
+    columns: 
+      - name: user_id
+        tests:
+          - not_null
+          - unique
     

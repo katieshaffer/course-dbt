@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Overall product level information, including number of orders containing a product
+    columns: 
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_shipping
+    description: Shipping information associated with each order, including shipping address, carrier, and timeliness of delivery
+    columns: 
+      - name: order_id
+        tests:
+          - not_null
+          - unique

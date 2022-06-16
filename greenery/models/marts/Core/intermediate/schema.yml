@@ -13,21 +13,12 @@ models:
       - name: is_usa
         description: Indicates whether the address country is United States
 
-  - name: int_user_orders
-    description: Order information combined with the user information
-    columns: 
-      - name: order_id
-        tests:
-          - not_null
+  - name: int_users
+    description: User information including number of orders made
+    columns:
       - name: user_id
-        tests:
-          - not_null
 
-  - name: int_product_orders
-    description: Overall product level information, including number of orders containing a product
-    columns: 
-      - name: product_id
-        tests:
-          - not_null
-          - unique
+  - name: int_orders
+    description: Order information with promo code information
+
     

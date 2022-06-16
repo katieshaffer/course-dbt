@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: fct_sessions
+    description: User information and events for each session

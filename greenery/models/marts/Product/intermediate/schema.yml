@@ -1,5 +1,5 @@
 version: 2
 
 models:
-  - name: int_events
-    description: Event data for the platform
+  - name: int_session_events_agg
+    description: Aggregated session events by user
