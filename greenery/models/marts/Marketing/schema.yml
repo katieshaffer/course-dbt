@@ -7,12 +7,4 @@ models:
       - name: user_id
         tests:
           - not_null
-
-  - name: dim_users
-    description: Information for each Greenery user
-    columns: 
-      - name: user_id
-        tests:
-          - not_null
-          - unique
-    
+          

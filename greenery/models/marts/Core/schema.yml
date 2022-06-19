@@ -16,3 +16,11 @@ models:
         tests:
           - not_null
           - unique
+
+  - name: dim_users
+    description: User level information including first order date and most recent order date
+    columns:
+     - name: user_id
+       tests:
+        - not_null
+        - unique
