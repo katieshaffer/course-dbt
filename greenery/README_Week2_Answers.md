@@ -15,7 +15,7 @@ LEFT JOIN repeat_orders on orders.user_id = repeat_orders.repeat_order_user_id;
 ```
 
 What are good indicators of a user who will likely purchase again? What about indicators of users who are likely NOT to purchase again? If you had more data, what features would you want to look into to answer this question?
- * Someone ,ay not order again if they had a bad experience (e.g., shipment was late or product did not meet expectations). 
+ * Someone may not order again if they had a bad experience (e.g., shipment was late or product did not meet expectations). 
  * May order again if they had a positive experience with Greenery (e.g., saved money with promo code, free shipping, etc.) 
  * There could be trends related to geography, specific products, etc. It would be great if we had a table of customer feedback linked to orders and/or products in the future.
  * If we had more data, we could look at longer term trends. For instance, maybe certain customers order at predictable times like each year on Valentine’s Day.
@@ -35,7 +35,7 @@ What assumptions are you making about each model? (i.e. why are you adding each 
  * For select fields with a limited number of values existing in the table, I added the `acceptable_values` test. That way, if a new value were to show up in the future, I’d be alerted.
 
 Did you find any “bad” data as you added and ran tests on your models? How did you go about either cleaning the data in the dbt model or adjusting your assumptions/tests?
-I tested for `zipcode` length being 5 and found some that were 4 digits long, due to dropped leading zeroes. So, I updated the test to make sure zip code length is either 4 or 5. If it is 4, I added a step in the intermediate model to add a leading zero for 4 digit zip codes.
+*I tested for `zipcode` length being 5 and found some that were 4 digits long, due to dropped leading zeroes. So, I updated the test to make sure zip code length is either 4 or 5. If it is 4, I added a step in the intermediate model to add a leading zero for 4 digit zip codes.*
 
 Your stakeholders at Greenery want to understand the state of the data each day. Explain how you would ensure these tests are passing regularly and how you would alert stakeholders about bad data getting through.
-I would set up the dbt job to refresh at least once a day. I can monitor the jobs to see if there are any  errors. Ideally, I could even integrate with Slack so that an alert is automatically generated if a test fails.
+*I would set up the dbt job to refresh at least once a day. I can monitor the jobs to see if there are any  errors. Ideally, I could even integrate with Slack so that an alert is automatically generated if a test fails.*
