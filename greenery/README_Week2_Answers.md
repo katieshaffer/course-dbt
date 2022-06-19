@@ -27,7 +27,7 @@ Explain the marts models you added. Why did you organize the models in the way y
 
 
 Paste in an image of your DAG from the docs.
-![Week 2 DAG](DAG/DAG_Week2.png)
+![Week 2 DAG](DAG/Week2_DAG.png)
 
 What assumptions are you making about each model? (i.e. why are you adding each test?) 
  * After looking at the data, I added `unique` tests for the primary keys. I also added `not_null` tests for fields that looked mandatory.
