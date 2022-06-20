@@ -1,7 +1,7 @@
 WITH session_length AS (
     SELECT session_id
-            , MAX(created_at) AS first_event
-            , MIN(created_at) AS last_event
+            , MIN(created_at) AS first_event
+            , MAX(created_at) AS last_event
     FROM {{ ref('int_session_events_agg') }} AS events
     GROUP BY session_id
 )
