@@ -2,25 +2,113 @@ version: 2
 
 models:
   - name: dim_products
-    description: Overall product level information, including number of orders containing a product
+    description: Overall product level information
     columns: 
       - name: product_id
+        description: ID for each unique Greenery product
         tests:
           - not_null
           - unique
+      - name: product_name
+        description: Name of the product
+        tests:
+          - not_null
+          - unique
+      - name: price
+        description: Price of the product
+        tests: 
+          - positive_values
+      - name: is_in_stock
+        description: Indicates whether the product is currently in stock
+      - name: number_in_stock
+        description: Amount of inventory we have for this product
+      - name: number_of_orders_with_product
+        description: Number of unique Greenery orders that have contained this product
 
   - name: fct_shipping
-    description: Shipping information associated with each order, including shipping address, carrier, and timeliness of delivery
+    description: Shipping information associated with each order
     columns: 
       - name: order_id
+        description: ID for each unique order on Greenery platform
         tests:
           - not_null
           - unique
+      - name: address_id
+        description: ID for each unique address on Greenery platform
+        tests:
+          - not_null
+      - name: address
+        description: The first few lines of shipping address for order
+        tests:
+          - not_null
+      - name: zipcode
+        description: The zipcode of the shipping address
+        tests:
+          - not_null
+      - name: state
+        description: The state of the shipping address
+        tests:
+          - not_null
+      - name: country
+        description: The country of the shipping address
+        tests:
+          - not_null
+      - name: is_usa
+        description: Indicates whether the shipping address is in the United States
+        tests:
+          - not_null
+      - name: shipping_cost
+        description: Cost of shipping for the order
+      - name: tracking_ID
+        description: Tracking number for the order
+      - name: shipping_service
+        description: Company that was used for shipping
+      - name: status
+        description: Status of the order
+      - name: delivery_timeliness
+        description: Indicates if the order was delivered early, on time, or late based on the estimated delivery date and actual delivery date
+      - name: days_from_order_to_delivery
+        description: Number of days between order date and delivery date
 
   - name: dim_users
     description: User level information including first order date and most recent order date
     columns:
      - name: user_id
+       description: ID for each unique user on Greenery platform
        tests:
         - not_null
         - unique
+     - name: is_repeat_customer
+       description: Indicates whether customer has made more than one order
+       tests:
+        - not_null
+     - name: number_of_user_orders
+       description: Number of all time orders for customer
+       tests:
+        - not_null
+     - name: first_name
+       description: First name of user
+       tests:
+        - not_null
+     - name: last_name
+       description: Last name of user
+       tests:
+        - not_null
+     - name: email
+       description: Email address of user
+       tests:
+        - not_null
+     - name: phone_number
+       description: Phone number of user
+       tests:
+        - not_null
+     - name: user_created_at
+       description: Timestamp of when the user account was created
+       tests:
+        - not_null
+     - name: first_order_created_at
+       description: Timestamp of when the user made their first order
+     - name: most_recent_order_created_at
+       description: Timestamp of when the user made their most recent order
+      
+
