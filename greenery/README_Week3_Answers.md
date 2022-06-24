@@ -17,7 +17,7 @@ LEFT JOIN sessions_with_purchase ON fct_sessions.session_id = sessions_with_purc
 ;
 ```
 What is our conversion rate by product?
- ![Conversion rate by product](DAG/p)
+ ![Conversion rate by product](DAG/product_conversion_rate.png)
 
 ```
 WITH product_views AS (
