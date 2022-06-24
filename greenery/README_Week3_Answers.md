@@ -50,7 +50,7 @@ JOIN product_purchases ON product_views.product_id = product_purchases.product_i
 ```
 
 Create new models to answer these questions. 
-I created new model in Product called fct_product_conversion_rates
+* I created new model in Product called fct_product_conversion_rates
 
 Why might certain products be converting at higher/lower rates than others? Note: we don't actually have data to properly dig into this, but we can make some hypotheses.
 * Price - if price is high, perhaps customers will buy a cheaper alternative product
