@@ -2,4 +2,33 @@ version: 2
 
 models:
   - name: int_session_events_agg
-    description: Aggregated session events by user
+    description: Categorized session events for each user event
+
+  - name: int_session_events_totals
+    description: Aggregated session event totals for each session
+
+  - name: int_product_page_views
+    description: Page view events by product
+    columns: 
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: product_name
+        tests:
+          - not_null
+          - unique
+      - name: sessions_with_product_view
+        tests: 
+          - positive_values
+
+  - name: int_product_purchases
+    description: Purchases by product
+    columns: 
+      - name: product_id
+        tests:
+          - not_null
+          - unique
+      - name: sessions_with_product_purchase
+        tests: 
+          - positive_values

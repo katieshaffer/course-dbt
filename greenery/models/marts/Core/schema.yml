@@ -45,6 +45,7 @@ models:
         description: The zipcode of the shipping address
         tests:
           - not_null
+          - zip_code_length
       - name: state
         description: The state of the shipping address
         tests:
@@ -106,9 +107,17 @@ models:
        description: Timestamp of when the user account was created
        tests:
         - not_null
+        - dbt_expectations.expect_column_values_to_be_of_type:
+            column_type: timestamp without time zone
      - name: first_order_created_at
        description: Timestamp of when the user made their first order
+       tests:
+        - dbt_expectations.expect_column_values_to_be_of_type:
+            column_type: timestamp without time zone
      - name: most_recent_order_created_at
        description: Timestamp of when the user made their most recent order
+       tests:
+       - dbt_expectations.expect_column_values_to_be_of_type:
+            column_type: timestamp without time zone
       
 
