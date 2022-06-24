@@ -1,4 +1,5 @@
 PART 1
+
 What is our overall conversion rate? 62.46%
 
 ```
@@ -16,7 +17,7 @@ LEFT JOIN sessions_with_purchase ON fct_sessions.session_id = sessions_with_purc
 ;
 ```
 What is our conversion rate by product?
- ![Conversion rate by product](DAG/product_conversion_rate.png)
+ ![Conversion rate by product](DAG/p)
 
 ```
 WITH product_views AS (
@@ -48,7 +49,8 @@ JOIN product_purchases ON product_views.product_id = product_purchases.product_i
 ;
 ```
 
-Create new models to answer these questions. I created new model in Product called fct_product_conversion_rates
+Create new models to answer these questions. 
+I created new model in Product called fct_product_conversion_rates
 
 Why might certain products be converting at higher/lower rates than others? Note: we don't actually have data to properly dig into this, but we can make some hypotheses.
 * Price - if price is high, perhaps customers will buy a cheaper alternative product
