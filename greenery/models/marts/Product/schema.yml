@@ -21,3 +21,10 @@ models:
         description: Calculated as the number of unique sessions with a purchase event of that product divided by the total number of unique sessions that viewed that product
         tests: 
           - positive_values
+  - name: fct_product_funnel_all_time
+    description: Product funnel performance for all time
+    columns:
+      - name: pct_drop_off_from_prior_level
+        description: Percent drop compared to the funnel level above
+  - name: fct_product_funnel_by_month
+    description: Product funnel performance on a monthly basis

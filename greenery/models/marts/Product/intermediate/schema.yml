@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_session_events_agg
+  - name: int_session_events_funnel
     description: Categorized session events for each user event
 
   - name: int_session_events_totals
