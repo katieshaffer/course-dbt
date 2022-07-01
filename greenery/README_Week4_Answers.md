@@ -1,4 +1,4 @@
-##Part 1: dbt Snapshots
+## Part 1: dbt Snapshots
 * Snapshot created (orders_snapshot.sql)
 
 ## Part 2: Modeling challenge
